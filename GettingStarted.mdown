@@ -1,4 +1,4 @@
-# Getting Started with CRUD REST API for Creative Cloud Storage
+# Getting Started with Fast Random Stock Image, a CRUD REST API for Creative Cloud Products
 
 ## Contents
 
@@ -16,16 +16,28 @@
 
 - This API is the visual equivalent of a graphic designer's "[Lorem ipsum](https://www.lipsum.com/)" text. With a few input variables, designers can quickly pull almost-random stock images into a page layout. The user may also optionally to cover each image with an "Artwork not final" watermark.
 - Is this RESTful API the right one for your project?  TBD filler text about why you might want to use another method.
-- Here are [two sample InDesign documents] you can download for use in the examples below. 
+- Here are [a few sample documents in different file formats] which you can download for use in the examples below. 
 
 ## A compelling use case
-It's a story about someone who would want to use this API.
+
+Pat is a graphic designer waiting on the final artwork approval for a project. Pat needs to have the design team approve the layout soon, and wants a to quickly populate a long InDesign document with stock photographs of mammals.  Using this API and a few lines of code, Pat is able to automatically fill the document with random mammal photos in a matter of minutes.
 
 ## Your First Program
 
-- Here are some amazingly verbose code snippets aimed at beginning programers
+- This section ideally contains amazingly verbose code snippets aimed at beginning programers.
+ 
+1. You're ready to get started. Open this [example document] and you will find this "id tag" in several locations:
 
-- Your ready to get started. Open the thingy and paste in the following line:
+  ;;#IDtag;;
+
+The IDtag is placed anywhere in the document a stock image or asset will go.  
+
+1. You'll need to find the local file path of the document, or the online URL if the document is stored online.  This [example document] is stored in /Users/student/Documents/ITP/ExampleDock.doc so the local file path looks like this:
+
+file://localhost/Users/student/Documents/ITP/ExampleDock.doc
+
+1.. Use the GET command to find the 
+
 ### Snippet 1
   - foo (bar)
   - Press go! 
