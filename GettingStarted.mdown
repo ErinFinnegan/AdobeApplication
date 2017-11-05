@@ -32,11 +32,11 @@ Pat is a graphic designer waiting on the final artwork approval for a project. P
 
 The IDtag is placed anywhere in the document a stock image or asset will go.  
 
-1. You'll need to find the local file path of the document, or the online URL if the document is stored online.  This [example document] is stored in /Users/student/Documents/ITP/ExampleDock.doc so the local file path looks like this:
+2. You'll need to find the local file path of the document, or the online URL if the document is stored online.  This [example document] is stored in /Users/student/Documents/ITP/ExampleDock.doc so the local file path looks like this:
 
 file://localhost/Users/student/Documents/ITP/ExampleDock.doc
 
-1.. Use the GET command to find the 
+3. Use the GET command to find the 
 
 ### Snippet 1
   - foo (bar)
