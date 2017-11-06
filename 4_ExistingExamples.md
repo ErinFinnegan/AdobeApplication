@@ -1,6 +1,12 @@
 ## Existing Examples of Community Engagement or Marketing Outreach
 
 ### Marketing content you’ve written.
+- In an attempt to find sponsorships for my zero gravity wedding, we launched a personal marketing campaign. I wrote the [wedding website](http://www.erinfinnegan.com/sam/?page_id=82) /(the graphics are no longer in place/)
+  - My photo is in the 2011 Guinness Book of World Records, and mentioned in later books
+  - According to Nielsen, over 26.1 million people have saw TV segments of my weightless wedding  
+  - The wedding appeared in 500 television segments, more than 500 individual articles & blogs and over 6,000 Web hits
+  - We were also interviewed on the CBS Early Morning show, featured in three print magazines, and interviewed on two radio shows.
+
 - At Lerner's Graphic Universe, I essentially wrote the marketing blog:
    -  [My Wordpress author tag on their site](https://graphicuniverse.wordpress.com/author/erinfinnegan/)
    -  [Some convention coverage for Lerner](https://graphicuniverse.wordpress.com/2010/04/28/mocca2010/)
