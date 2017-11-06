@@ -13,12 +13,12 @@
    -  [Gathering coverage of a book's launch ](https://graphicuniverse.wordpress.com/2010/08/25/early-praise-for-nolas-worlds/)
 
 ### Open source projects you’ve contributed to, or a write-up of your contributions to a closed source project that we can verify.
-  - I received a Google Experiments in Storytelling Grant for [this project ](https://github.com/futuremarc/Twitch-Plays-Hamlet). It's called [Twitch Plays Shakespeare](http://fromjia.com/projects/twitch/). I created and directed the project, collaborated on coding it, and hired Jia as the graphic designer /(her write up is in the preceding link/).
-  - Here's [my first ever pull request](https://github.com/shiffman/The-Nature-of-Code-S14/pull/1) , which I did in [Dan Shiffman's](https://www.youtube.com/user/shiffman) Nature of Code class at [ITP](https://tisch.nyu.edu/itp): 
+  - I received a Google Experiments in Storytelling Grant for [this project ](https://github.com/futuremarc/Twitch-Plays-Hamlet). It's called [Twitch Plays Shakespeare](http://fromjia.com/projects/twitch/). I created and directed the project, collaborated on coding it, and hired Jia as the graphic designer (her write up is in the preceding link).
+  - I collaborated on [this RESTful application ](https://github.com/kinasmith/isTheFloorFeeding/blob/master/heroku/public/index.html) that powers a lighted box (see below) whenever free food is available in another part of the studio. The app [still exists](http://isthefloorfeeding.herokuapp.com/) on heroku but the physical component of the project is no longer in place.
+  - Here's [my first ever pull request](https://github.com/shiffman/The-Nature-of-Code-S14/pull/1) , which I did in [Dan Shiffman's](https://www.youtube.com/user/shiffman) Nature of Code class at [ITP](https://tisch.nyu.edu/itp). 
  - My final project in that class was written in javascript.
     - Here's [a code sample ](https://github.com/ErinFinnegan/Omnomitron/blob/master/itallhappenshere.js)
-    - Here's [a video of the code working ](https://vimeo.com/100457165)
-- I collaborated on [this RESTful application ](https://github.com/kinasmith/isTheFloorFeeding/blob/master/heroku/public/index.html) that powers a lighted box (see below) whenever free food is available in another part of the studio. The app [still exists](http://isthefloorfeeding.herokuapp.com/) on heroku but the physical component of the project is no longer in place.
+    - Here's [a video of the code in action ](https://vimeo.com/100457165)
 
 ### Existing Examples of Community Engagement or Marketing Outreach
 
@@ -31,12 +31,12 @@ I got paid for 10 years to engage with the anime and manga fan community as an a
 ### Forum/Stackoverflow/etc answers you’ve written.
 - I spent three years writing for [Anime News Network](https://www.animenewsnetwork.com/advertising), where part of my job as columnist was daily interaction with readers in the forum. In this example, I used insider jargon [incorrectly in a review](https://www.animenewsnetwork.com/shelf-life/2010-01-04#spice), causing [the forums to light up that week](https://www.animenewsnetwork.com/bbs/phpBB2/viewtopic.php?t=126151).  You know it's going to be bad when the reaction post is:
    > Did you just call Horo a tsundere? To quote the great Inigo Montoya 'there will be blood tonight!' ...in the forum that is. 
- I learned that even as a critic you have to keep the content in line with audience expectations.
+I learned that even as a critic you have to keep the content in line with audience expectations.
 
 ### Details on email campaigns you’ve driven.
-- In 2016 [I did this kickstarter campaign](https://www.kickstarter.com/projects/432973105/puppet-vr-murder-mystery) for a personal project, the "Puppet VR Murder Mystery". I was selected from hundreds of applicant to pitch the project at the [NY Media Center's VR Pitchfest](http://nymediacenter.com/events/event/?id=46910F62-0543-4157-B569EF3C490345BE&slugid=virtual-reality-pitchfest), s to pitch to a Shark Tank of professionals.
-  - I used [a Gmail add-on script](https://chrome.google.com/webstore/detail/mail-merge-with-attachmen/nifmcbjailaccmombpjjpijjbfoicppp) to email 80 people per day for a person touch.
-  - I also used SurveyMonkey and GreenInbox to try and reach all my Gmail, Facebook, and Twitter contacts, using automated yet slightly personalized direct messages, to make sure every single one of my contacts knew about the project.
+- In 2016 [I did this kickstarter campaign](https://www.kickstarter.com/projects/432973105/puppet-vr-murder-mystery) for a personal project, the "Puppet VR Murder Mystery". I was selected from hundreds of applicant to pitch the project at the [NY Media Center's VR Pitchfest](http://nymediacenter.com/events/event/?id=46910F62-0543-4157-B569EF3C490345BE&slugid=virtual-reality-pitchfest), to a Shark Tank of professionals.
+  - I used [a Gmail add-on script](https://chrome.google.com/webstore/detail/mail-merge-with-attachmen/nifmcbjailaccmombpjjpijjbfoicppp) to email 80 people per day for a somewhat personal touch.
+  - I also used SurveyMonkey and GreenInbox to try and reach all my Gmail, Facebook, and Twitter contacts, using automated yet  personalized direct messages, to make sure every single one of my contacts knew about the project in time.
 
 - In 2016, I co-created an interactive theater piece called ["The Institute"](https://sharangbiswas.myportfolio.com/the-institute), which received a Google Experiments in Storytelling Grant.  In terms of the marketing campaign, I was in charge of [creating the Facebook group](https://www.facebook.com/TheInstituteAtTheBrick/) during the performances.
 
