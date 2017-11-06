@@ -15,9 +15,8 @@
 ### Open source projects you’ve contributed to, or a write-up of your contributions to a closed source project that we can verify.
   - I received a Google Experiments in Storytelling Grant for [this project ](https://github.com/futuremarc/Twitch-Plays-Hamlet). It's called [Twitch Plays Shakespeare](http://fromjia.com/projects/twitch/). I created and directed the project, collaborated on coding it, and hired Jia as the graphic designer (her write up is in the preceding link).
   - I collaborated on [this RESTful application ](https://github.com/kinasmith/isTheFloorFeeding/blob/master/heroku/public/index.html) that powers a lighted box (see below) whenever free food is available in another part of the studio. The app [still exists](http://isthefloorfeeding.herokuapp.com/) on heroku but the physical component of the project is no longer in place.
-  - Here's [my first ever pull request](https://github.com/shiffman/The-Nature-of-Code-S14/pull/1) , which I did in [Dan Shiffman's](https://www.youtube.com/user/shiffman) Nature of Code class at [ITP](https://tisch.nyu.edu/itp). 
- - My final project in that class was written in javascript.
-    - Here's [a code sample ](https://github.com/ErinFinnegan/Omnomitron/blob/master/itallhappenshere.js)
+  - Here's [my first ever pull request](https://github.com/shiffman/The-Nature-of-Code-S14/pull/1).
+ - Here's javascript [code sample ](https://github.com/ErinFinnegan/Omnomitron/blob/master/itallhappenshere.js)
     - Here's [a video of the code in action ](https://vimeo.com/100457165)
 
 ### Existing Examples of Community Engagement or Marketing Outreach
@@ -25,7 +24,7 @@
 I got paid for 10 years to engage with the anime and manga fan community as an anime journalist. I got into it by [starting a podcast](https://itunes.apple.com/us/podcast/ninja-consultant-podcast/id74941727?mt=2). I reviewed anime and manga and wrote convention coverage for Publishers Weekly, Otaku USA Magazine, and AnimeNewsNetwork.com.
 
 ### Product launches you were involved in.
-  - I wrote for Otaku USA from the 2nd issue on, so in the magazine's first year I was invited to sit on this panel, which I recorded for my podcast: [Otaku USA Magazine panel at New York Anime Festival 2008](http://ninjaconsultant.com/?m=200811)
+  - Otaku USA magazine held this panel in its first year, which I recorded for my podcast: [Otaku USA Magazine panel at New York Anime Festival 2008](http://ninjaconsultant.com/?m=200811)
   - [I interviewed the author of The Rough Guide to Anime](https://www.publishersweekly.com/pw/by-topic/new-titles/adult-announcements/article/12974-an-anime-canon-for-all.html), as press for his book launch for Publishers Weekly.
 
 ### Forum/Stackoverflow/etc answers you’ve written.

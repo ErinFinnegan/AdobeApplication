@@ -2,7 +2,7 @@
 
 ## Contents
 
-"Fast Random Stock Image" is CRUD REST API pulls stock images from Stock CC for placement into Illustrator, InDesign, Photoshop, or Premiere.  The user specifies the number and sizes of the image required, as well as any desired image tags, and Stock places the images into the right places in the prepared InDesign document.
+"Fast Random Stock Image" is a CRUD REST API pulls stock images from Stock CC for placement into Illustrator, InDesign, Photoshop, or Premiere.  The user specifies the number and sizes of the image required, as well as any desired image tags, and Stock places the images into the right places in the prepared InDesign document.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Pat is a graphic designer waiting on the final artwork approval for a project. P
 
 ## Your First Program
 
-This section ideally contains amazingly verbose code snippets aimed at beginning programers.
+This section ideally contains amazingly verbose code snippets aimed at beginning programmers.
  
  1. You're ready to get started. Open this [example document] and you will find this "id tag" in several locations:
 
@@ -111,7 +111,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
 ## Where to get help
    - The dedicated community forum
-   - a hashtag on twitter
+   - a hash tag on twitter
    - the stackoverflow tag
    - How to contact us
 
