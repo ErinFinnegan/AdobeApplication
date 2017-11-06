@@ -43,7 +43,7 @@ Pat is a graphic designer waiting on the final artwork approval for a project. P
    ### Snippet 1
    ```javascript
       GET  file://localhost/Users/student/Documents/ITP/ExampleDock.indd?#IDtag=findIDs  \\find all the instances of #IDtag and assign ID numbers
-        ```
+   ```
   The findIDs function searches through document andcreates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
  4. In this example, we're only looking for mammals
