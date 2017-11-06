@@ -1,3 +1,5 @@
+## Existing Examples of Community Engagement or Marketing Outreach
+
 ### Marketing content you’ve written.
 - At Lerner's Graphic Universe, I essentially wrote the marketing blog:
    -  [My Wordpress author tag on their site](https://graphicuniverse.wordpress.com/author/erinfinnegan/)
