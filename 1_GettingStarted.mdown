@@ -49,10 +49,10 @@ Pat is a graphic designer waiting on the final artwork approval for a project. P
  4. In this example, we're only looking for mammals
 
   ### Snippet 2
-    ```javascript
+     ```javascript
       GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  \\Search Adobe Stock for images of mammals, only of the filetype .png, and assign one to each IDtag in the document.
       TARGET file://localhost/Users/student/Documents/ITP/ExampleDock.indd \\Target file path and location
-    ```
+     ```
 
  - We're ready to make our first API call and print "Hello World"
    
