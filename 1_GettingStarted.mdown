@@ -24,9 +24,9 @@ Pat is a graphic designer waiting on the final artwork approval for a project. P
 
 ## Your First Program
 
-- This section ideally contains amazingly verbose code snippets aimed at beginning programers.
+This section ideally contains amazingly verbose code snippets aimed at beginning programers.
  
-  1. You're ready to get started. Open this [example document] and you will find this "id tag" in several locations:
+ 1. You're ready to get started. Open this [example document] and you will find this "id tag" in several locations:
 
      ```javascript
       ;;#IDtag;;
@@ -42,7 +42,8 @@ Pat is a graphic designer waiting on the final artwork approval for a project. P
 
    ### Snippet 1
    ```javascript
-      GET  file://localhost/Users/student/Documents/ITP/ExampleDock.indd?#IDtag=findIDs  \\find all the instances of #IDtag and assign ID numbers
+      GET  file://localhost/Users/student/Documents/ITP/ExampleDock.indd?#IDtag=findIDs  
+                     \\find all the instances of #IDtag and assign ID numbers
    ```
   The findIDs function searches through document andcreates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
@@ -50,8 +51,11 @@ Pat is a graphic designer waiting on the final artwork approval for a project. P
 
   ### Snippet 2
   ```javascript
-     GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  \\Search Adobe Stock for images of mammals, only of the filetype .png, and assign one to each IDtag in the document.
-     TARGET file://localhost/Users/student/Documents/ITP/ExampleDock.indd \\Target file path and location
+     GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  
+                           \\Search Adobe Stock for images of mammals, only of the filetype.png, 
+                           and assign one to each IDtag in the document.
+     TARGET file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
+                          \\Target file path and location
   ```
 
  - We're ready to make our first API call and print "Hello World"
