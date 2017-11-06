@@ -1,4 +1,4 @@
-# For part 2: A sample technical blog post
+# A sample technical blog post
 
 Granted, this is not from the past six months, but this is my longest piece of technical writing, and I referred back to it a lot. I even referred back to it again to write this repo: [My own notes on using git and github](https://stu.itp.nyu.edu/~eef206/blog/erins-all-caps-guide-to-git-and-github-troubleshooting-for-total-n00bs/) 
 
