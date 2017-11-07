@@ -40,7 +40,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    ```
  3. Use the GET command to find all the IDtags. The "initial scan" function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document.
 
-       ### Snippet 1
+ ### Snippet 1
 
    ```javascript
               GET  file://localhost/Users/student/Documents/ITP/ExampleDock.indd?#IDtag=findIDs  
@@ -50,7 +50,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
  4. In this example, we're only looking for mammals
 
-        ### Snippet 2
+ ### Snippet 2
    ```javascript
                GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  
                         //Search Adobe Stock for images of mammals, only of the filetype.png, and assign one to each IDtag in the document.
@@ -59,7 +59,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    ```
  5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
 
-        ### Snippet 3
+ ### Snippet 3
    ```javascript
                DELETE file://localhost/Users/student/Documents/ITP/ExampleDock.indd%=tag=sloth
                UPDATE https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  
@@ -69,7 +69,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
   We're ready to make our first API call and find random images tagged "Hello World"
    
-    ### Snippet 3
+ ### Snippet 3
 
    ```javascript
            GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=hello+world&search_parameters%5Bassign=IDtag  
@@ -95,38 +95,28 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
    *Required:*
  
-   `tags=[alphanumeric]`
-   `IDtag=[integer]`
-   `locale=[alphanumeric]`
+   tags=[alphanumeric]
+   IDtag=[integer]
+   locale=[alphanumeric]
 
    *Optional:*
  
-   `filetype=[alphanumeric]`
-   `exclude=[alphanumeric]`
+   filetype=[alphanumeric]
+   exclude=[alphanumeric]
 
  ### Error Examples
 
-  *Code:* 401 UNAUTHORIZED 
-    *Content:* `{ error : "Log into Adobe CC" }`
 
-    You must be logged into Adobe CC and have a valid Adobe Stock account (beyond the 10 free images).
-
-  *Code:* 422 UNPROCESSABLE ENTRY 
-    *Content:* `{ error : "Invalid tag" }`
-
-    The tag you specified doesn't exist in Adobe Stock. Check the spelling, or try searching Adobe Stock directly for a similar tag.
-
-  *Code:* 402 PAYMENT REQUIRED 
-    *Content:* `{ error : "Payment Required for the requested images" }
-
-  *Code:* 405 METHOD NOT ALLOWED 
-    *Content:* `{ error : "Invalid method" }`
-
-    The GET method can only be used with stock.adobe.io, while UPDATE, DELETE, and TARGET can only be used with local files, or files not hosted on stock.adobe.io that you are able to access.
+  Code # | Error | Notes 
+  --- | --- | ---
+  401 UNAUTHORIZED  | `{ error : "Log into Adobe CC" }` | You must be logged into Adobe CC and have a valid Adobe Stock account (beyond the 10 free images).
+  422 UNPROCESSABLE ENTRY | `{ error : "Invalid tag" }` | The tag you specified doesn't exist in Adobe Stock. Check the spelling, or try searching Adobe Stock directly for a similar tag.
+  402 PAYMENT REQUIRED | `{ error : "Payment Required for the requested images" } |
+  405 METHOD NOT ALLOWED |`{ error : "Invalid method" }` |  The GET method can only be used with stock.adobe.io, while UPDATE, DELETE, and TARGET can only be used with local files, or files not hosted on stock.adobe.io that you are able to access.
 
 
-### Here are a couple well-chosen screenshots of this API in action
-
+### Screenshots
+ Here are a couple well-chosen screenshots of this API in action
 
 ## Where to get help
    - The dedicated community forum
