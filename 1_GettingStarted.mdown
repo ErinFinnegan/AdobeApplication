@@ -35,34 +35,35 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   The IDtag is placed anywhere in the document a stock image or other asset will go.  
 
  2. You'll need to find the local file path of the document, or the online URL if the document is stored online.  This [example document] is stored in /Users/student/Documents/ITP/ExampleDock.doc so the local file path looks like this:
-     ```javascript
+   ```javascript
       file://localhost/Users/student/Documents/ITP/ExampleDock.indd
-     ```
+   ```
  3. Use the GET command to find all the IDtags. The "initial scan" function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document.
 
        ### Snippet 1
-           ```javascript
+
+   ```javascript
               GET  file://localhost/Users/student/Documents/ITP/ExampleDock.indd?#IDtag=findIDs  
                      //find all the instances of #IDtag and assign ID numbers
-            ```
+   ```
    The findIDs function searches through document and creates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
  4. In this example, we're only looking for mammals
 
         ### Snippet 2
-            ```javascript
+   ```javascript
                GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  
                         //Search Adobe Stock for images of mammals, only of the filetype.png, and assign one to each IDtag in the document.
                TARGET file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
                         //Target file path and location
-            ```
+   ```
  5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
 
         ### Snippet 3
-            ```javascript
+   ```javascript
                DELETE file://localhost/Users/student/Documents/ITP/ExampleDock.indd%=tag=sloth
                UPDATE https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  
-            ```
+    ```
 
  ## Hello World Recipe
 
@@ -70,13 +71,13 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    
     ### Snippet 3
 
-        ```javascript
+   ```javascript
            GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=hello+world&search_parameters%5Bassign=IDtag  
                 //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
            TARGET file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
                 //Target file path and location
-        ```
-## URL Structure
+   ```
+ ### URL Structure
 
   The URLs for each call need to be structured as follows:
 
@@ -84,13 +85,13 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   https://stock.adobe.io/Rest/Media/1/Search/Files?locale=Country/search_parameters/tags/filetype/exclude
   ```
 
-## Method:
+ ### Method:
 
   The following methods are allowed
 
   `GET` | `DELETE` | `UPDATE` | `TARGET`
   
-## URL Params
+ ### URL Params
 
    *Required:*
  
@@ -103,7 +104,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    `filetype=[alphanumeric]`
    `exclude=[alphanumeric]`
 
-## Error Examples
+ ### Error Examples
 
   *Code:* 401 UNAUTHORIZED 
     *Content:* `{ error : "Log into Adobe CC" }`
