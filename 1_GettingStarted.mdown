@@ -45,7 +45,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
       GET  file://localhost/Users/student/Documents/ITP/ExampleDock.indd?#IDtag=findIDs  
                      //find all the instances of #IDtag and assign ID numbers
    ```
-  The findIDs function searches through document andcreates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
+  The findIDs function searches through document and creates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
  4. In this example, we're only looking for mammals
 
@@ -57,57 +57,74 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
      TARGET file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
                           //Target file path and location
   ```
+ 5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
 
- - We're ready to make our first API call and print "Hello World"
+  ### Snippet 3 
+  ```javascript
+     DELETE file://localhost/Users/student/Documents/ITP/ExampleDock.indd%=tag=sloth
+     UPDATE https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  
+  ```
+
+ - We're ready to make our first API call and find random images tagged "Hello World"
    
     ### Snippet 3
 
+      ```javascript
+     GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=hello+world&search_parameters%5Bassign=IDtag  
+                //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
+     TARGET file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
+                //Target file path and location
+  ```
+* **URL Structure**
+
+  The URLs for each call need to be structured as follows:
+
+  ```
+  https://stock.adobe.io/Rest/Media/1/Search/Files?locale=Country/search_parameters/tags/filetype/exclude
+  ```
+
+* **Method:**
+  
+  The following methods are allowed
+
+  `GET` | `DELETE` | `UPDATE` | `TARGET`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   `tags=[alphanumeric]`
+   `IDtag=[integer]`
+   `locale=[alphanumeric]`
+
+   **Optional:**
+ 
+   `filetype=[alphanumeric]`
+   `exclude=[alphanumeric]`
+
 ## Error Examples
-- This is how "Fast Random Stock Image" throws errors
- - And what they mean 
 
- > sample error
- > sample error
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error : "Log into Adobe CC" }`
 
- - How to avoid common errors 
-  - error 1
-  - error 2
-  - error 3
+    You must be logged into Adobe CC and have a valid Adobe Stock account (beyond the 10 free images).
 
+  * **Code:** 422 UNPROCESSABLE ENTRY <br />
+    **Content:** `{ error : "Invalid tag" }`
 
-## More Code Samples
+    The tag you specified doesn't exist in Adobe Stock. Check the spelling, or try searching Adobe Stock directly for a similar tag.
 
-- You might want to write some functions.  Here's a sample program to put some foos in your bar
-```javascript
-> sample sample
-> sample sample
-> sample sample
-```
-### Adding objects
+  * **Code:** 402 PAYMENT REQUIRED <br />
+    **Content:** `{ error : "Payment Required for the requested images" }
 
-- Let's add some objects
+  * **Code:** 405 METHOD NOT ALLOWED <br />
+    **Content:** `{ error : "Invalid method" }`
 
-> sample sample
-> sample sample
-> sample sample
+    The GET method can only be used with stock.adobe.io, while UPDATE, DELETE, and TARGET can only be used with local files, or files not hosted on stock.adobe.io that you are able to access.
 
-> sample sample
-> sample sample
-> sample sample
-
-> sample sample
-> sample sample
-> sample sample
 
 ### Here are a couple well-chosen screenshots of this API in action
 
-## Recipes and Tutorials
-
-- Here's a link to some code recipes and tutorials:
-  - A Tutorial 1; a deeper dive into the earlier use case
-  - B Tutorial 2; another compelling use case
-  - C Recipe 1
-  - D Recipe 2
 
 ## Where to get help
    - The dedicated community forum
