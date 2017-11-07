@@ -32,7 +32,7 @@ Responding in a timely, if not instantaneously, is definitely key to twitter. I 
 
 ## Twitter in General
 
-In general I've found Twitter to be a good platform to get a fast response from otherwise large and faceless corporations.  I like it when corporate accounts have a good sense of humor, like in [this instancee](http://www.adweek.com/creativity/wendys-put-troll-ice-2017s-best-tweet-so-far-175334/) where Wendy's chided someone for [forgetting about refrigerationn](https://twitter.com/Wendys/status/815973811115925504?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2Fwww.adweek.com%2Fcreativity%2Fwendys-put-troll-ice-2017s-best-tweet-so-far-175334%2F).  That said, the user had to delete their account.
+In general I've found Twitter to be a good platform to get a fast response from otherwise large and faceless corporations.  I like it when corporate accounts have a good sense of humor, like in [this instance ](http://www.adweek.com/creativity/wendys-put-troll-ice-2017s-best-tweet-so-far-175334/) where Wendy's chided someone for [forgetting about refrigeration ](https://twitter.com/Wendys/status/815973811115925504?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2Fwww.adweek.com%2Fcreativity%2Fwendys-put-troll-ice-2017s-best-tweet-so-far-175334%2F).  That said, the user had to delete their account.
 
 That kind of response might be appropriate for Wendy's brand image, but not for Adobe.  If I'm going to represent Adobe CC on twitter I would need to know:
 - What is the company's brand image?

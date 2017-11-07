@@ -1,6 +1,6 @@
 # Getting Started with Fast Random Stock Image, a CRUD REST API for Creative Cloud Products
 
-The following uses an elaborate theoretical API as an example, but I may have gotten too detailed.  Perhaps [this earler version](https://github.com/ErinFinnegan/AdobeApplication/blob/cdb7a1b6106413773c362829b0b17bbdfccab791/GettingStartedEF01.mdown) was an outline closer to the instructions.
+The following uses an elaborate theoretical API as an example.  Here is [a less detailed, outline version](https://github.com/ErinFinnegan/AdobeApplication/blob/cdb7a1b6106413773c362829b0b17bbdfccab791/GettingStartedEF01.mdown) of the API doc in case a shorter document is preferred for this audience.
 
 ## Contents
 
@@ -51,19 +51,19 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  
  3. Click "Send Link" from the drop down arrow of your selected file from your assets.adobe.com/files page, and copy the provided link.
    ```javascript
-      https://adobe.ly/myFile
+      https://adobe.ly/mySourceFile
    ```
  4. Use the FIND command to find all the IDtags. This initial scan function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document. The basic format for a FIND call is:
    ```
-     FIND https://randomStockImageURL/SourceFileLocation?APIkey&IDtag&otherparameters
+     FIND https://randomStockImageURL/?myCCfile=SourceFile?APIkey=myAPIkey&IDtag=IDtagnumbers&otherparameters=othervalues
    ```
    For example:
 
  ### Snippet 1
 
    ```javascript
-      //find all the instances of #IDtag and assign ID numbers
-      FIND  https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&IDtag&findIDs
+      //find all the instances of ```%3BIDtag%3B``` and assign ID numbers
+      FIND  https://randomStockImage.adobe.ly/?myCCfile=mySourceFile?APIkey=myAPIkey&IDtag=findIDs
    ```
    The findIDs function searches through document and creates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
@@ -72,18 +72,15 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  ### Snippet 2
    ```javascript
       //Search Adobe Stock for images of mammals, only of the filetype.png, and assign one to each IDtag in the document.
-      GET https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&tags=mammals&search_parameters=pngs&assign=IDtag  
+      GET https://randomStockImage.adobe.ly/https://randomStockImage.adobe.ly/?myCCfile=mySourceFile?APIkey=myAPIkey&tags=mammals&search_parameters=pngs&assign=IDtag 
    ```
    
  5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
 
  ### Snippet 3
    ```javascript
-        //Find any images with the tag 'sloth'
-        GET https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&tag=sloth
-        
-        //Update all the IDtags associated with the tag 'sloth' using images without the 'sloth' tag.
-        PATCH https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&tags=mammals&exclude=sloth
+        //Find any images with the tag 'sloth' and update all the IDtags associated with the tag 'sloth' using images without the 'sloth' tag.
+        PATCH https://randomStockImage.adobe.ly/?myCCfile=mySourceFile?APIkey=myAPIkey&tags=mammals&exclude=sloth
    ```
 <a name="helloworld"></a>
  ## Hello World Recipe 
@@ -96,7 +93,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
    ```javascript
         //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
-        GET https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&search_parameters&tags=hello+world&assign=IDtag
+        GET https://randomStockImage.adobe.ly/?myCCfile=mySourceFile?APIkey=myAPIkey&tags=hello+world&assign=IDtag
    ```
    
    ![Hello World image from Adobe Stock](helloworld.png)
@@ -105,7 +102,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
   The URLs for each call need to be structured as follows:
   ```
-  <protocol>://<host>/<path>?<param1>&<param2>&...<paramn>
+  <protocol>://<host>/?<file path>&<param1>&<param2>&...<paramn>
   ```
  <a name="methods"></a>
  ### Methods and Parameters:
