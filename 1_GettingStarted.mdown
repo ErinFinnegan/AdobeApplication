@@ -38,13 +38,13 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    ```javascript
       file://localhost/Users/student/Documents/ITP/ExampleDock.indd
    ```
- 3. Use the GET command to find all the IDtags. The "initial scan" function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document.
+ 3. Use the FIND command to find all the IDtags. This initial scan function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document.
 
  ### Snippet 1
 
    ```javascript
-              GET  file://localhost/Users/student/Documents/ITP/ExampleDock.indd?#IDtag=findIDs  
-                     //find all the instances of #IDtag and assign ID numbers
+      FIND  file://localhost/Users/student/Documents/ITP/ExampleDock.indd?#IDtag=findIDs  
+          //find all the instances of #IDtag and assign ID numbers
    ```
    The findIDs function searches through document and creates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
@@ -54,7 +54,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    ```javascript
       GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  
           //Search Adobe Stock for images of mammals, only of the filetype.png, and assign one to each IDtag in the document.
-      TARGET file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
+      POST file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
           //Target file path and location
    ```
  5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
@@ -72,11 +72,14 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   We're ready to make our first API call and find random images tagged "Hello World"
    
  ### Snippet 3
+  
+  Open the [sample document] and you will notice some `;;IDTag;;` instances already in place.  Add a few more if you'd like.
 
    ```javascript
-           GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=hello+world&search_parameters%5Bassign=IDtag  
+        FIND file://localhost/Users/student/Documents/ITP/ExampleDock.indd
+        GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=hello+world&search_parameters%5Bassign=IDtag  
                 //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
-           TARGET file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
+        POST file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
                 //Target file path and location
    ```
  ### URL Structure
@@ -91,23 +94,17 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
   The following methods are allowed
 
-  `GET` | `DELETE` | `UPDATE` | `TARGET`
+  `FIND` | `GET` | `DELETE` | `UPDATE` | `POST`
   
  ### URL Params
-
-  *Required:*
- 
-   tags=[alphanumeric]
-
-   IDtag=[integer]
-   
-   locale=[alphanumeric]
-
-  *Optional:*
- 
-   filetype=[alphanumeric]
-   
-   exclude=[alphanumeric]
+  
+  Requirement | Parameter |  Input
+  --- | --- | ---
+  Required | tags | alphanumeric
+  Required | IDtag | integer
+  Required | locale | alphanumeric
+  Optional | filetype | alphanumeric
+    Optional | exclude | alphanumeric
 
  ### Error Examples
 
@@ -117,7 +114,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   401 UNAUTHORIZED  | ` error : "Log into Adobe CC" ` | You must be logged into Adobe CC and have a valid Adobe Stock account (beyond the 10 free images).
   422 UNPROCESSABLE ENTRY | ` error : "Invalid tag" ` | The tag you specified doesn't exist in Adobe Stock. Check the spelling, or try searching Adobe Stock directly for a similar tag.
   402 PAYMENT REQUIRED | ` error : "Payment Required for the requested images" ` | You have exceeded the 10 free images or your payment method is invalid on stock.adobe.io
-  405 METHOD NOT ALLOWED |` error : "Invalid method" ` |  The GET method can only be used with stock.adobe.io, while UPDATE, DELETE, and TARGET can only be used with local files, or files not hosted on stock.adobe.io that you are able to access.
+  405 METHOD NOT ALLOWED |` error : "Invalid method" ` |  The GET method can only be used with stock.adobe.io, while UPDATE, DELETE, and POST can only be used with local files, or files not hosted on stock.adobe.io that you are able to access.
 
 
 ## Screenshots
