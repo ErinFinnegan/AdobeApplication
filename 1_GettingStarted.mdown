@@ -26,7 +26,7 @@ Here is a list of requirements to get you started. You will need:
 
 ## Setting the context <a name="context"></a>
 
-- This API is the visual equivalent of a graphic designer's "[Lorem ipsum](https://www.lipsum.com/)" text. With a few input variables, designers can quickly pull almost-random stock images into a page layout. The user may also optionally cover each image with an "Artwork not final" watermark.
+- This API is the visual equivalent of a graphic designer's "[Lorem ipsum](https://www.lipsum.com/)" text. With a few input variables, designers can quickly pull almost-random stock images into a page layout.
 - Is this RESTful API the right one for your project?  TBD filler text about why you might want to use another method.
 - Here are [a few sample documents in different file formats] which you can download for use in the examples below. 
 
