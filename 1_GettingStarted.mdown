@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-1. Here is a list of requirements to get you started. You will need:
+Here is a list of requirements to get you started. You will need:
   1. An Adobe Creative Cloud ID
   1. To be an approved Adobe CC Developer. If you aren't already, apply [here].
   1. An Adobe Stock subscription. 10 standard assets are free, [read more here](https://stock.adobe.com).
