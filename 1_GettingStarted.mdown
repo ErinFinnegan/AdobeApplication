@@ -82,6 +82,8 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
         POST file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
                 //Target file path and location
    ```
+   ![Hello World image from Adobe Stock](helloworld.png)
+   
  ### URL Structure
 
   The URLs for each call need to be structured as follows:
@@ -104,7 +106,6 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   Required | IDtag | integer
   Required | locale | alphanumeric
   Optional | filetype | alphanumeric
-    Optional | exclude | alphanumeric
 
  ### Error Examples
 
