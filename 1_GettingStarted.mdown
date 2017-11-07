@@ -31,8 +31,8 @@ Here is a list of requirements to get you started. You will need:
 - This API is the visual equivalent of a graphic designer's "[Lorem ipsum](https://www.lipsum.com/)" text. With a few input variables, designers can quickly pull almost-random stock images into a page layout.
 - Is this RESTful API the right one for your project?  TBD filler text about why you might want to use another method.
 - Here are [a few sample documents in different file formats] which you can download for use in the examples below. 
-
-## A compelling use case <a name="usecase"></a>
+<a name="usecase"></a>
+## A compelling use case 
 
 Pat is a graphic designer waiting on the final artwork approval for a project. Pat needs to have the design team approve the layout soon, and wants a to quickly populate a long InDesign document with stock photographs of mammals.  Using this API and a few lines of code, Pat is able to automatically fill the document with random mammal photos in a matter of minutes.
 <a name="firstprogram"></a>
@@ -43,9 +43,8 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  1. You're ready to get started. Download this [example document] and you will find this "id tag" in several locations:
 
      ```javascript
-      ;;#IDtag;;
-     ```
-
+      %3BIDtag%3B     
+      ```
   The IDtag is placed anywhere in the document a stock image or other asset will go.  
 
  2. You'll need to upload your file or [the example file] into your Creative Cloud Library. See [these instructions](https://helpx.adobe.com/creative-cloud/help/share.html) for more details on how to upload a file.
@@ -56,7 +55,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    ```
  4. Use the FIND command to find all the IDtags. This initial scan function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document. The basic format for a FIND call is:
    ```
-     FIND randomStockImageURL/APIkey/IDtag/SourceFileLocation
+     FIND https://randomStockImageURL/SourceFileLocation?APIkey&IDtag&otherparameters
    ```
    For example:
 
@@ -64,7 +63,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
    ```javascript
       //find all the instances of #IDtag and assign ID numbers
-      FIND  https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/#IDtag=findIDs/https://adobe.ly/myFile
+      FIND  https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&IDtag&findIDs
    ```
    The findIDs function searches through document and creates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
@@ -73,10 +72,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  ### Snippet 2
    ```javascript
       //Search Adobe Stock for images of mammals, only of the filetype.png, and assign one to each IDtag in the document.
-      GET https://randomStockImage.adobe.ly/search_parameters/tags/mammals/search_parameters/limit/pngs/assign=IDtag  
-      
-      //Put the images into the target file
-      PUT https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/https://adobe.ly/myFile
+      GET https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&tags=mammals&search_parameters=pngs&assign=IDtag  
    ```
    
  5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
@@ -84,10 +80,10 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  ### Snippet 3
    ```javascript
         //Find any images with the tag 'sloth'
-        GET https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/tag=sloth
+        GET https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&tag=sloth
         
         //Update all the IDtags associated with the tag 'sloth' using images without the 'sloth' tag.
-        PATCH https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/#IDtag=findIDs/https://adobe.ly/myFile/tags/mammals/assign=IDtag/exclude=sloth
+        PATCH https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&tags=mammals&exclude=sloth
    ```
 <a name="helloworld"></a>
  ## Hello World Recipe 
@@ -96,12 +92,11 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    
  ### Snippet 4
   
-  Open the [sample document] and you will notice some `;;IDTag;;` instances already in place.  Add a few more if you'd like.
+  Open the [sample document] and you will notice some `%3BIDTag%3B` instances already in place.  Add a few more if you'd like.
 
    ```javascript
         //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
-        GET https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/search_parameters/tags/hello+world
-        PUT https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/https://adobe.ly/myFile
+        GET https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&search_parameters&tags=hello+world
    ```
    
    ![Hello World image from Adobe Stock](helloworld.png)
@@ -109,9 +104,8 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  ### URL Structure <a name="urlstructure"></a>
 
   The URLs for each call need to be structured as follows:
-
   ```
-  https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/search_parameters/tags/filetype/exclude/targetFileLocation
+  <protocol>://<host>/<path>?<param1>&<param2>&...<paramn>
   ```
  <a name="methods"></a>
  ### Methods and Parameters:
@@ -122,10 +116,10 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   
   Method | Parameters | Input | Requirement |  Notes
  --- | ----- | ----- | ----- | -----
- FIND | IDtag | integer | Required | Used to find all the instances of `;;IDtag;;` in the local document
+ FIND | IDtag | integer | Required | Used to find all the instances of `%3BIDtag%3B` in the local document
  GET | tags | alphanumeric | Required for GET and PUT| Used to search stock.adobe.io for stock images
- PATCH | IDtag | integer | Required for FIND | Replaces and unassigned instances of `;;IDtag;;` in the local document with images specfied in the command
- PUT | APIkey | alphanumeric | Required | Assigns images retrieved in the `GET` into `;;IDtag;;` locations in the local document or used to delete images with specified tags from the local document
+ PATCH | IDtag | integer | Required for FIND | Replaces and unassigned instances of `%3BIDtag%3B` in the local document with images specfied in the command
+ PUT | APIkey | alphanumeric | Required | Assigns images retrieved in the `GET` into `%3BIDtag%3B` locations in the local document or used to delete images with specified tags from the local document
  PUT | tag | alphanumeric | Optional | Specifies images of requested tag
 
 <a name="errors"></a>
