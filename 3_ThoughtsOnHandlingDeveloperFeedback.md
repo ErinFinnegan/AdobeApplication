@@ -27,7 +27,7 @@ We should have a queue of responses on hand for this sort of scenario as well. I
   - If possible personalize some of the replies after the clean up to let the developers know we read each one, especially to the people who seemed the most passionate about the problem.
   - I've found that developers and engineers appreciate honesty and brevity.  After such a problem, posting some of the technical details of what happened will satisfy the curiosity of parts of the community.
 
-For pre-written replies, it's best to have a philosophy or guideline in place that will help you make the right decisions how to answer, e.g. “we always value customer privacy above all else” or “customers who use our products to make memes take priority” etc.
+For pre-written replies, it's best to have a philosophy or guideline in place to frame the answers, e.g. “we always value customer privacy above all else” or “customers who use our products to make memes take priority” etc.
 
 ## Speed is Critical
 
