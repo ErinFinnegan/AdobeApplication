@@ -48,7 +48,7 @@ I got paid for 10 years to engage with the anime and manga fan community as an a
 I learned that even as a critic you have to keep the content in line with audience expectations.
 
 ### Details on email campaigns you’ve driven.
-- In 2016 [I did this kickstarter campaign](https://www.kickstarter.com/projects/432973105/puppet-vr-murder-mystery) for a personal project, the "Puppet VR Murder Mystery". I was selected from hundreds of applicant to pitch the project at the [NY Media Center's VR Pitchfest](http://nymediacenter.com/events/event/?id=46910F62-0543-4157-B569EF3C490345BE&slugid=virtual-reality-pitchfest), to a Shark Tank of professionals.
+- In 2016 [I did this Kickstarter campaign](https://www.kickstarter.com/projects/432973105/puppet-vr-murder-mystery) for a personal project, the "Puppet VR Murder Mystery". I was selected from hundreds of applicant to pitch the project at the [NY Media Center's VR Pitchfest](http://nymediacenter.com/events/event/?id=46910F62-0543-4157-B569EF3C490345BE&slugid=virtual-reality-pitchfest), to a Shark Tank of professionals.
   - I used [a Gmail add-on script](https://chrome.google.com/webstore/detail/mail-merge-with-attachmen/nifmcbjailaccmombpjjpijjbfoicppp) to email 80 people per day for a somewhat personal touch.
   - I also used SurveyMonkey and GreenInbox to try and reach all my Gmail, Facebook, and Twitter contacts, using automated yet  personalized direct messages, to make sure every single one of my contacts knew about the project in time.
 

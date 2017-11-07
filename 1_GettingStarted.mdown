@@ -102,7 +102,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
   The URLs for each call need to be structured as follows:
   ```
-  <protocol>://<host>/?<file path>&<param1>&<param2>&...<paramn>
+  <protocol>://<host>/?<file path>&<param1>&<param2>&...<param>
   ```
  <a name="methods"></a>
  ### Methods and Parameters:
@@ -115,7 +115,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  --- | ----- | ----- | ----- | -----
  FIND | IDtag | integer | Required | Used to find all the instances of `%3BIDtag%3B` in the local document
  GET | tags | alphanumeric | Required for GET and PUT| Used to search stock.adobe.io for stock images
- PATCH | IDtag | integer | Required for FIND | Replaces and unassigned instances of `%3BIDtag%3B` in the local document with images specfied in the command
+ PATCH | IDtag | integer | Required for FIND | Replaces and unassigned instances of `%3BIDtag%3B` in the local document with images specified in the command
  PUT | APIkey | alphanumeric | Required | Assigns images retrieved in the `GET` into `%3BIDtag%3B` locations in the local document or used to delete images with specified tags from the local document
  PUT | tag | alphanumeric | Optional | Specifies images of requested tag
 
