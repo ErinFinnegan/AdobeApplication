@@ -81,8 +81,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    ```javascript
         //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
         FIND file://localhost/Users/student/Documents/ITP/ExampleDock.indd
-        
-        GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=hello+world&search_parameters%5Bassign=IDtag 
+        HTTP GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/hello+world/search_parameters/assign=IDtag 
         
         //Target file path and location        
         POST file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
@@ -102,7 +101,15 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
   The following methods are allowed
 
-  `FIND` | `GET` | `DELETE` | `UPDATE` | `POST`
+  `FIND` | `HTTP GET` | `DELETE` | `UPDATE` | `POST`
+  
+  Method |  Notes
+ --- | -----
+ FIND | Used to find all the instances of `;;IDtag;;` in the local document
+ HTTP GET | Used to search stock.adobe.io for stock images
+ DELETE | Used to delete images with specified tags from the local document
+ UPDATE | Replaces and unassigned instances of `;;IDtag;;` in the local document with images specfied in the command
+ POST | Assigns images retrieved in the `HTTP GET` into `;;IDtag;;` locations in the local document
   
  ### URL Params
   
@@ -121,7 +128,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   401 UNAUTHORIZED  | ` error : "Log into Adobe CC" ` | You must be logged into Adobe CC and have a valid Adobe Stock account (beyond the 10 free images).
   422 UNPROCESSABLE ENTRY | ` error : "Invalid tag" ` | The tag you specified doesn't exist in Adobe Stock. Check the spelling, or try searching Adobe Stock directly for a similar tag.
   402 PAYMENT REQUIRED | ` error : "Payment Required for the requested images" ` | You have exceeded the 10 free images or your payment method is invalid on stock.adobe.io
-  405 METHOD NOT ALLOWED |` error : "Invalid method" ` |  The GET method can only be used with stock.adobe.io, while UPDATE, DELETE, and POST can only be used with local files, or files not hosted on stock.adobe.io that you are able to access.
+  405 METHOD NOT ALLOWED |` error : "Invalid method" ` |  The HTTP GET method can only be used with stock.adobe.io, while UPDATE, DELETE, and POST can only be used with local files, or files not hosted on stock.adobe.io that you are able to access.
 
 
 ## Screenshots
