@@ -42,7 +42,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  
  1. You're ready to get started. Download this [example document] and you will find this "id tag" in several locations:
 
-     ```javascript
+     ```
       %3BIDtag%3B     
       ```
   The IDtag is placed anywhere in the document a stock image or other asset will go.  
@@ -96,7 +96,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
    ```javascript
         //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
-        GET https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&search_parameters&tags=hello+world
+        GET https://randomStockImage.adobe.ly/adobe.ly/myFile?yourAPIkey&search_parameters&tags=hello+world&assign=IDtag
    ```
    
    ![Hello World image from Adobe Stock](helloworld.png)
