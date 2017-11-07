@@ -1,5 +1,5 @@
 # Thoughts on handling developer feedback in a public forum
-Thanks to podcasting and writing the AnimeNewsNetwork column for three years, I have some experience engaging with an online audience of a few thousand people, some of whom can be unpleasant at times. 
+Thanks to podcasting and writing the AnimeNewsNetwork column, I have years of experience engaging with an online audience of a few thousand people, some of whom can be unpleasant at times. 
 
 ## Scenario 1
 > Twitter reads: "Hey, Adobe CC: your API isn't working." We did a quick gut check, and no APIs seem to be down. No other developers are reporting similar issues.
@@ -13,6 +13,10 @@ The best practice for Twitter is to have some responses written and ready to go 
 ## Scenario 2
 > We did a quick gut check, and yikes: a certain set of APIs are down. Similar tweets are starting to flow in.
 
+In my seven years of technical support at NYU I've learned:
+- Customers/users/students want to feel heard and cared for
+- Don't be afraid to apologize
+
 We should have a queue of responses on hand for this sort of scenario as well. I think it's important to have management pre-approve the template for tweets to be used in both scenarios, as well as agree upon the general plan of action for both scenarios.
 
 - You're right, some of our APIs are down at the moment. We're working on the problem now.
@@ -21,7 +25,9 @@ We should have a queue of responses on hand for this sort of scenario as well. I
 - After the APIs are back up, take the time to reply (or write an app to automatically reply to) all of the twitter users who pointed out the problem, saying something to the effect of:
   - Thanks for taking the time to let us know. We think the APIs are back up and running now. Please tell us if you're still experiencing problems.
   - If possible personalize some of the replies after the clean up to let the developers know we read each one, especially to the people who seemed the most passionate about the problem.
-  - I've found that developers and engineers appreciate honesty and brevity.  After such a problem, posting some of the technical details of what happened please parts of the community.
+  - I've found that developers and engineers appreciate honesty and brevity.  After such a problem, posting some of the technical details of what happened will satisfy the curiosity of parts of the community.
+
+For pre-written replies, it's best to have a philosophy or guideline in place that will help you make the right decisions how to answer, e.g. “we always value customer privacy above all else” or “customers who use our products to make memes take priority” etc.
 
 ## Speed is Critical
 
