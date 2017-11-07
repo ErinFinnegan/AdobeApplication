@@ -16,8 +16,8 @@ The following uses an elaborate theoretical API as an example, but I may have go
 8. [Errors](#errors)
 9. [Help](#help)
 10. [Reference](#reference)
-
-## Prerequisites <a name="prerequisites"></a>
+<a name="prerequisites"></a>
+## Prerequisites 
 
 Here is a list of requirements to get you started. You will need:
   1. An Adobe Creative Cloud ID
@@ -25,8 +25,8 @@ Here is a list of requirements to get you started. You will need:
   1. An Adobe Stock subscription. 10 standard assets are free, [read more here](https://stock.adobe.com).
   1. An API key. Generate yours by clicking [here].
   1. A file to use (Photoshop, Illustrator, InDesign, or Premiere) to be uploaded into your Creative Cloud Library.
-
-## Setting the context <a name="context"></a>
+<a name="context"></a>
+## Setting the context 
 
 - This API is the visual equivalent of a graphic designer's "[Lorem ipsum](https://www.lipsum.com/)" text. With a few input variables, designers can quickly pull almost-random stock images into a page layout.
 - Is this RESTful API the right one for your project?  TBD filler text about why you might want to use another method.
@@ -35,8 +35,8 @@ Here is a list of requirements to get you started. You will need:
 ## A compelling use case <a name="usecase"></a>
 
 Pat is a graphic designer waiting on the final artwork approval for a project. Pat needs to have the design team approve the layout soon, and wants a to quickly populate a long InDesign document with stock photographs of mammals.  Using this API and a few lines of code, Pat is able to automatically fill the document with random mammal photos in a matter of minutes.
-
-## Your First Program <a name="firstprogram"></a>
+<a name="firstprogram"></a>
+## Your First Program 
 
 This section ideally contains amazingly verbose code snippets aimed at beginning programmers.
  
@@ -52,15 +52,17 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  
  3. Click "Send Link" from the drop down arrow of your selected file from your assets.adobe.com/files page, and copy the provided link.
    ```javascript
-      https://adobe.ly/2AfP5Jc
+      https://adobe.ly/mySourceFile
    ```
- 4. Use the FIND command to find all the IDtags. This initial scan function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document.
+ 4. Use the FIND command to find all the IDtags. This initial scan function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document. The basic format for a FIND call is:
+   ```FIND randomStockImageURL/APIkey/IDtag/SourceFileLocation```
+   For example:
 
  ### Snippet 1
 
    ```javascript
       //find all the instances of #IDtag and assign ID numbers
-      FIND  https://adobe.ly/2AfP5Jc/myAPIkey=yourAPIkey/#IDtag=findIDs  
+      FIND  https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/#IDtag=findIDs/https://adobe.ly/mySourceFile
    ```
    The findIDs function searches through document and creates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
@@ -69,10 +71,10 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  ### Snippet 2
    ```javascript
       //Search Adobe Stock for images of mammals, only of the filetype.png, and assign one to each IDtag in the document.
-      GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/mammals/search_parameters/limit/pngs/assign=IDtag  
+      GET https://randomStockImage.adobe.ly/search_parameters/tags/mammals/search_parameters/limit/pngs/assign=IDtag  
       
-      //Target file path and location
-      PUT https://adobe.ly/2AfP5Jc/myAPIkey=yourAPIkey/
+      //Put the images into the target file
+      PUT https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/#IDtag=findIDs/https://adobe.ly/mySourceFile
       
    ```
  5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
@@ -80,13 +82,13 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  ### Snippet 3
    ```javascript
         //Delete any images with the tag 'sloth'
-        PUT https://adobe.ly/2AfP5Jc/myAPIkey=yourAPIkey/tag=sloth
+        PUT https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/tag=sloth
         
-        //Update the local file with new images where none exists, do not use any images with the 'sloth' tag.
-        PATCH https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/mammals/search_parameters/limit/pngs/assign=IDtag/exclude=sloth
+        //Update your file with new images where none exists, do not use any images with the 'sloth' tag.
+        PATCH https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/#IDtag=findIDs/https://adobe.ly/mySourceFile/tags/mammals/assign=IDtag/exclude=sloth
    ```
-
- ## Hello World Recipe <a name="helloworld"></a>
+<a name="helloworld"></a>
+ ## Hello World Recipe 
 
   We're ready to make our first API call and find random images tagged "Hello World"
    
@@ -96,7 +98,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
    ```javascript
         //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
-        FIND https://adobe.ly/2AfP5Jc/myAPIkey=yourAPIkey
+        FIND https://randomStockImage.adobe.ly/search_parameters/tags/hello world/search_parameters/limit/pngs/assign=IDtag  
         GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/hello+world/search_parameters/assign=IDtag 
         
         //Target file path and location        
@@ -112,8 +114,8 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   ```
   https://stock.adobe.io/Rest/Media/1/Search/Files?locale=Country/search_parameters/tags/filetype/exclude
   ```
-
- ### Methods and Parameters: <a name="methods"></a>
+ <a name="methods"></a>
+ ### Methods and Parameters:
 
   The following methods are allowed
 
@@ -127,7 +129,8 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  PUT | APIkey | alphanumeric | Required | Assigns images retrieved in the `GET` into `;;IDtag;;` locations in the local document or used to delete images with specified tags from the local document
  PUT | tag | alphanumeric | Optional | Specifies images of requested tag
 
- ### Error Examples <a name="errors"></a>
+<a name="errors"></a>
+ ### Error Examples 
  
   Code # | Error | Notes 
   --- | --- | ---
@@ -135,8 +138,8 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   402 PAYMENT REQUIRED | `"Payment Required for the requested images" ` | You have exceeded the 10 free images or your payment method is invalid on stock.adobe.io
   405 METHOD NOT ALLOWED |`"Invalid method" ` |  The GET method can only be used with stock.adobe.io, while PATCH, and PUT can only be used with files in your Adobe Creative Cloud Library.
 
-
-## Screenshots <a name="screenshots"></a>
+<a name="screenshots"></a>
+## Screenshots 
  Here are a couple well-chosen screenshots of this API in action
 
  [TBA]
