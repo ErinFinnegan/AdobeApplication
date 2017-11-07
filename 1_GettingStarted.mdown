@@ -12,11 +12,10 @@ The following uses an elaborate theoretical API as an example, but I may have go
 4. [Your First Program](#firstprogram)
 5. [Hello World](#helloworld)
 6. [URL Structure](#urlstructure)
-7. [Methods](#methods)
-8. [Parameters](#params)
-9. [Errors](#errors)
-10. [Help](#help)
-11. [Reference](#reference)
+7. [Methods and Parameters](#methods)
+8. [Errors](#errors)
+9. [Help](#help)
+10. [Reference](#reference)
 
 ## Prerequisites <a name="prerequisites"></a>
 
@@ -61,7 +60,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
    ```javascript
       //find all the instances of #IDtag and assign ID numbers
-      FIND  https://adobe.ly/2AfP5Jc/myAPTkey=yourAPIkey/#IDtag=findIDs  
+      FIND  https://adobe.ly/2AfP5Jc/myAPIkey=yourAPIkey/#IDtag=findIDs  
    ```
    The findIDs function searches through document and creates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
@@ -73,7 +72,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
       GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/mammals/search_parameters/limit/pngs/assign=IDtag  
       
       //Target file path and location
-      PUT https://adobe.ly/2AfP5Jc/myAPTkey=yourAPIkey/
+      PUT https://adobe.ly/2AfP5Jc/myAPIkey=yourAPIkey/
       
    ```
  5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
@@ -81,7 +80,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  ### Snippet 3
    ```javascript
         //Delete any images with the tag 'sloth'
-        PUT https://adobe.ly/2AfP5Jc/myAPTkey=yourAPIkey/tag=sloth
+        PUT https://adobe.ly/2AfP5Jc/myAPIkey=yourAPIkey/tag=sloth
         
         //Update the local file with new images where none exists, do not use any images with the 'sloth' tag.
         PATCH https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/mammals/search_parameters/limit/pngs/assign=IDtag/exclude=sloth
@@ -97,11 +96,11 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
    ```javascript
         //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
-        FIND https://adobe.ly/2AfP5Jc/myAPTkey=yourAPIkey
+        FIND https://adobe.ly/2AfP5Jc/myAPIkey=yourAPIkey
         GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/hello+world/search_parameters/assign=IDtag 
         
         //Target file path and location        
-        PUT https://adobe.ly/2AfP5Jc/myAPTkey=yourAPIkey/ 
+        PUT https://adobe.ly/2AfP5Jc/myAPIkey=yourAPIkey/ 
         
    ```
    ![Hello World image from Adobe Stock](helloworld.png)
@@ -114,34 +113,24 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   https://stock.adobe.io/Rest/Media/1/Search/Files?locale=Country/search_parameters/tags/filetype/exclude
   ```
 
- ### Methods: <a name="methods"></a>
+ ### Methods and Parameters: <a name="methods"></a>
 
   The following methods are allowed
 
   `FIND` | `GET` | `PUT` | `PATCH`
   
-  Method |  Notes
- --- | -----
- FIND | Used to find all the instances of `;;IDtag;;` in the local document
- GET | Used to search stock.adobe.io for stock images
- PATCH | Replaces and unassigned instances of `;;IDtag;;` in the local document with images specfied in the command
- PUT | Assigns images retrieved in the `GET` into `;;IDtag;;` locations in the local document or used to delete images with specified tags from the local document
-
-  
- ### URL Parameters <a name="params"></a>
-  
-  Requirement | Parameter |  Input
-  --- | --- | ---
-  Required for GET and PUT | tags | alphanumeric
-  Required for FIND| IDtag | integer
-  Required for GET | locale | alphanumeric
-  Optional for GET | filetype | alphanumeric
+  Method | Parameters | Input | Requirement |  Notes
+ --- | ----- | ----- | ----- | -----
+ FIND | IDtag | integer | Required | Used to find all the instances of `;;IDtag;;` in the local document
+ GET | tags | alphanumeric | Required for GET and PUT| Used to search stock.adobe.io for stock images
+ PATCH | IDtag | integer | Required for FIND | Replaces and unassigned instances of `;;IDtag;;` in the local document with images specfied in the command
+ PUT | APIkey | alphanumeric | Required | Assigns images retrieved in the `GET` into `;;IDtag;;` locations in the local document or used to delete images with specified tags from the local document
+ PUT | tag | alphanumeric | Optional | Specifies images of requested tag
 
  ### Error Examples <a name="errors"></a>
  
   Code # | Error | Notes 
   --- | --- | ---
-  401 UNAUTHORIZED  | `"Log into Adobe CC" ` | You must be logged into Adobe CC and have a valid Adobe Stock account (beyond the 10 free images).
   422 UNPROCESSABLE ENTRY | `"Invalid tag" ` | The tag you specified doesn't exist in Adobe Stock. Check the spelling, or try searching Adobe Stock directly for a similar tag.
   402 PAYMENT REQUIRED | `"Payment Required for the requested images" ` | You have exceeded the 10 free images or your payment method is invalid on stock.adobe.io
   405 METHOD NOT ALLOWED |`"Invalid method" ` |  The GET method can only be used with stock.adobe.io, while PATCH, and PUT can only be used with files in your Adobe Creative Cloud Library.
