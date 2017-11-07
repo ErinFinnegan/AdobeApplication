@@ -13,7 +13,7 @@
    -  [Gathering coverage of a book's launch ](https://graphicuniverse.wordpress.com/2010/08/25/early-praise-for-nolas-worlds/)
 
 ### Open source projects you’ve contributed to, or a write-up of your contributions to a closed source project that we can verify.
-  - I received a Google Experiments in Storytelling Grant for [this project ](https://github.com/futuremarc/Twitch-Plays-Hamlet). It's called [Twitch Plays Shakespeare](http://fromjia.com/projects/twitch/). I created and directed the project, collaborated on coding it, and hired Jia as the graphic designer (her write up is in the preceding link).
+  - I received a Google Experiments in Storytelling Grant for [this project ](https://github.com/futuremarc/Twitch-Plays-Hamlet). It's called [Twitch Plays Shakespeare](http://fromjia.com/projects/twitch/). I created and directed the project, collaborated on coding it, and hired Jia as the graphic designer (her write-up is in the preceding link).
   - I collaborated on [this RESTful application ](https://github.com/kinasmith/isTheFloorFeeding/blob/master/heroku/public/index.html) that powers a lighted box (see below) whenever free food is available in another part of the studio. The app [still exists](http://isthefloorfeeding.herokuapp.com/) on heroku but the physical component of the project is no longer in place.
   - Here's [my first ever pull request](https://github.com/shiffman/The-Nature-of-Code-S14/pull/1).
  - Here's javascript [code sample ](https://github.com/ErinFinnegan/Omnomitron/blob/master/itallhappenshere.js)
