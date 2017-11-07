@@ -52,35 +52,39 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
  ### Snippet 2
    ```javascript
-      GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  
-          //Search Adobe Stock for images of mammals, only of the filetype.png, and assign one to each IDtag in the document.
+      //Search Adobe Stock for images of mammals, only of the filetype.png, and assign one to each IDtag in the document.
+      HTTP GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/mammals/search_parameters/limit/pngs/assign=IDtag  
+      //Target file path and location
       POST file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
-          //Target file path and location
+      
    ```
  5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
 
  ### Snippet 3
    ```javascript
-        DELETE file://localhost/Users/student/Documents/ITP/ExampleDock.indd%=tag=sloth
-          //Delete any images with the tag 'sloth'
-        UPDATE https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag%5exclude=sloth
-          //Update the local file with new images where none exists, do not use any images with the 'sloth' tag.
+        //Delete any images with the tag 'sloth'
+        DELETE file://localhost/Users/student/Documents/ITP/ExampleDock.indd/tag=sloth
+        
+        //Update the local file with new images where none exists, do not use any images with the 'sloth' tag.
+        UPDATE https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/mammals/search_parameters/limit/pngs/assign=IDtag/exclude=sloth
    ```
 
  ## Hello World Recipe
 
   We're ready to make our first API call and find random images tagged "Hello World"
    
- ### Snippet 3
+ ### Snippet 4
   
   Open the [sample document] and you will notice some `;;IDTag;;` instances already in place.  Add a few more if you'd like.
 
    ```javascript
+        //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
         FIND file://localhost/Users/student/Documents/ITP/ExampleDock.indd
-        GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=hello+world&search_parameters%5Bassign=IDtag  
-                //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
+        GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=hello+world&search_parameters%5Bassign=IDtag 
+        
+        //Target file path and location        
         POST file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
-                //Target file path and location
+        
    ```
    ![Hello World image from Adobe Stock](helloworld.png)
    
