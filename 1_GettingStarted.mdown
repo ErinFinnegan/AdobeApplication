@@ -1,5 +1,7 @@
 # Getting Started with Fast Random Stock Image, a CRUD REST API for Creative Cloud Products
 
+The following uses an elaborate theoretical API as an example, but I may have gotten too detailed.  Perhaps [this earler version](https://github.com/ErinFinnegan/AdobeApplication/blob/cdb7a1b6106413773c362829b0b17bbdfccab791/GettingStartedEF01.mdown) was an outline closer to the instructions.
+
 ## Contents
 
 "Fast Random Stock Image" is a CRUD REST API that pulls stock images from Stock CC for placement into Illustrator, InDesign, Photoshop, or Premiere.  The user specifies the number and sizes of the image required, as well as any desired image tags, and Stock puts the images into the right places in the prepared InDesign document.
@@ -23,6 +25,7 @@ Here is a list of requirements to get you started. You will need:
   1. To be an approved Adobe CC Developer. If you aren't already, apply [here].
   1. An Adobe Stock subscription. 10 standard assets are free, [read more here](https://stock.adobe.com).
   1. An API key. Generate yours by clicking [here].
+  1. A file to use (Photoshop, Illustrator, InDesign, or Premiere) to be uploaded into your Creative Cloud Library.
 
 ## Setting the context <a name="context"></a>
 
@@ -38,7 +41,7 @@ Pat is a graphic designer waiting on the final artwork approval for a project. P
 
 This section ideally contains amazingly verbose code snippets aimed at beginning programmers.
  
- 1. You're ready to get started. Open this [example document] and you will find this "id tag" in several locations:
+ 1. You're ready to get started. Download this [example document] and you will find this "id tag" in several locations:
 
      ```javascript
       ;;#IDtag;;
@@ -46,17 +49,19 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
   The IDtag is placed anywhere in the document a stock image or other asset will go.  
 
- 2. You'll need to find the local file path of the document, or the online URL if the document is stored online.  This [example document] is stored in /Users/student/Documents/ITP/ExampleDock.doc so the local file path looks like this:
+ 2. You'll need to upload your file or [the example file] into your Creative Cloud Library. See [these instructions](https://helpx.adobe.com/creative-cloud/help/share.html) for more details on how to upload a file.
+ 
+ 3. Click "Send Link" from the drop down arrow of your selected file from your assets.adobe.com/files page, and copy the provided link.
    ```javascript
-      file://localhost/Users/student/Documents/ITP/ExampleDock.indd
+      https://adobe.ly/2AfP5Jc
    ```
- 3. Use the FIND command to find all the IDtags. This initial scan function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document.
+ 4. Use the FIND command to find all the IDtags. This initial scan function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document.
 
  ### Snippet 1
 
    ```javascript
       //find all the instances of #IDtag and assign ID numbers
-      FIND  file://localhost/Users/student/Documents/ITP/ExampleDock.indd?#IDtag=findIDs  
+      FIND  https://adobe.ly/2AfP5Jc/myAPTkey=yourAPIkey/#IDtag=findIDs  
    ```
    The findIDs function searches through document and creates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
@@ -68,7 +73,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
       GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/mammals/search_parameters/limit/pngs/assign=IDtag  
       
       //Target file path and location
-      POST file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
+      POST https://adobe.ly/2AfP5Jc/myAPTkey=yourAPIkey/
       
    ```
  5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
@@ -76,7 +81,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  ### Snippet 3
    ```javascript
         //Delete any images with the tag 'sloth'
-        DELETE file://localhost/Users/student/Documents/ITP/ExampleDock.indd/tag=sloth
+        DELETE https://adobe.ly/2AfP5Jc/myAPTkey=yourAPIkey/tag=sloth
         
         //Update the local file with new images where none exists, do not use any images with the 'sloth' tag.
         UPDATE https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/mammals/search_parameters/limit/pngs/assign=IDtag/exclude=sloth
@@ -92,11 +97,11 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
    ```javascript
         //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
-        FIND file://localhost/Users/student/Documents/ITP/ExampleDock.indd
+        FIND https://adobe.ly/2AfP5Jc/myAPTkey=yourAPIkey
         GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/hello+world/search_parameters/assign=IDtag 
         
         //Target file path and location        
-        POST file://localhost/Users/student/Documents/ITP/ExampleDock.indd 
+        POST https://adobe.ly/2AfP5Jc/myAPTkey=yourAPIkey/ 
         
    ```
    ![Hello World image from Adobe Stock](helloworld.png)
@@ -127,10 +132,10 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   
   Requirement | Parameter |  Input
   --- | --- | ---
-  Required | tags | alphanumeric
-  Required | IDtag | integer
-  Required | locale | alphanumeric
-  Optional | filetype | alphanumeric
+  Required for GET and DELETE | tags | alphanumeric
+  Required for FIND| IDtag | integer
+  Required for GET | locale | alphanumeric
+  Optional for GET | filetype | alphanumeric
 
  ### Error Examples <a name="errors"></a>
  
