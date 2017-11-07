@@ -52,17 +52,19 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  
  3. Click "Send Link" from the drop down arrow of your selected file from your assets.adobe.com/files page, and copy the provided link.
    ```javascript
-      https://adobe.ly/mySourceFile
+      https://adobe.ly/myFile
    ```
  4. Use the FIND command to find all the IDtags. This initial scan function will return the number of assets to be retrieved, as well as assign an ID number to the IDtags in the document. The basic format for a FIND call is:
-   ```FIND randomStockImageURL/APIkey/IDtag/SourceFileLocation```
+   ```
+     FIND randomStockImageURL/APIkey/IDtag/SourceFileLocation
+   ```
    For example:
 
  ### Snippet 1
 
    ```javascript
       //find all the instances of #IDtag and assign ID numbers
-      FIND  https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/#IDtag=findIDs/https://adobe.ly/mySourceFile
+      FIND  https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/#IDtag=findIDs/https://adobe.ly/myFile
    ```
    The findIDs function searches through document and creates ID numbers for each IDtag. If the IDtag is located inside of a box or other shape object in InDesign, Illustrator, or Photoshop, the function assigns a size variable to the associated ID. In the case of Premiere or a Photoshop animation, the IDtag is associated with the size and length of time.
 
@@ -74,18 +76,18 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
       GET https://randomStockImage.adobe.ly/search_parameters/tags/mammals/search_parameters/limit/pngs/assign=IDtag  
       
       //Put the images into the target file
-      PUT https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/#IDtag=findIDs/https://adobe.ly/mySourceFile
-      
+      PUT https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/https://adobe.ly/myFile
    ```
+   
  5. You can also update and delete images from the document based on the image tags.  For example, if the mammal results contain too many images of sloths, you can run the following to delete any images with the sloth tag and update them with a different random mammal image:
 
  ### Snippet 3
    ```javascript
-        //Delete any images with the tag 'sloth'
-        PUT https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/tag=sloth
+        //Find any images with the tag 'sloth'
+        GET https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/tag=sloth
         
-        //Update your file with new images where none exists, do not use any images with the 'sloth' tag.
-        PATCH https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/#IDtag=findIDs/https://adobe.ly/mySourceFile/tags/mammals/assign=IDtag/exclude=sloth
+        //Update all the IDtags associated with the tag 'sloth' using images without the 'sloth' tag.
+        PATCH https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/#IDtag=findIDs/https://adobe.ly/myFile/tags/mammals/assign=IDtag/exclude=sloth
    ```
 <a name="helloworld"></a>
  ## Hello World Recipe 
@@ -98,13 +100,10 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
    ```javascript
         //Search Adobe Stock for images tagged "hello world" and assign one to each IDtag in the document.
-        FIND https://randomStockImage.adobe.ly/search_parameters/tags/hello world/search_parameters/limit/pngs/assign=IDtag  
-        GET https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/hello+world/search_parameters/assign=IDtag 
-        
-        //Target file path and location        
-        PUT https://adobe.ly/2AfP5Jc/myAPIkey=yourAPIkey/ 
-        
+        GET https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/search_parameters/tags/hello+world
+        PUT https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/https://adobe.ly/myFile
    ```
+   
    ![Hello World image from Adobe Stock](helloworld.png)
    
  ### URL Structure <a name="urlstructure"></a>
@@ -112,7 +111,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   The URLs for each call need to be structured as follows:
 
   ```
-  https://stock.adobe.io/Rest/Media/1/Search/Files?locale=Country/search_parameters/tags/filetype/exclude
+  https://randomStockImage.adobe.ly/myAPIkey=yourAPIkey/search_parameters/tags/filetype/exclude/targetFileLocation
   ```
  <a name="methods"></a>
  ### Methods and Parameters:
