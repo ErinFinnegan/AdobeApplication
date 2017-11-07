@@ -63,7 +63,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    ```javascript
                DELETE file://localhost/Users/student/Documents/ITP/ExampleDock.indd%=tag=sloth
                UPDATE https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters%5Bwords%5D=mammals&search_parameters%5Blimit%=pngs%5Bassign=IDtag  
-    ```
+   ```
 
  ## Hello World Recipe
 
