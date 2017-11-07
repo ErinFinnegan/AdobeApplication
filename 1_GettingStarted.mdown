@@ -4,12 +4,19 @@
 
 "Fast Random Stock Image" is a CRUD REST API that pulls stock images from Stock CC for placement into Illustrator, InDesign, Photoshop, or Premiere.  The user specifies the number and sizes of the image required, as well as any desired image tags, and Stock puts the images into the right places in the prepared InDesign document.
 
-1. [Prerequisites](##prerequisites)
-2. [Context](#setting)
-3. [Use Case](#A)
-4. [Your First Program](#your)
+1. [Prerequisites](#prerequisites)
+2. [Context](#context)
+3. [Use Case](#usecase)
+4. [Your First Program](#firstprogram)
+5. [Hello World](#helloworld)
+6. [URL Structure](#urlstructure)
+7. [Methods](#methods)
+8. [Parameters](#params)
+9. [Errors](#errors)
+10. [Help](#help)
+11. [Reference](#reference)
 
-## Prerequisites
+## Prerequisites <a name="prerequisites"></a>
 
 Here is a list of requirements to get you started. You will need:
   1. An Adobe Creative Cloud ID
@@ -17,17 +24,17 @@ Here is a list of requirements to get you started. You will need:
   1. An Adobe Stock subscription. 10 standard assets are free, [read more here](https://stock.adobe.com).
   1. An API key. Generate yours by clicking [here].
 
-## Setting the context
+## Setting the context <a name="context"></a>
 
 - This API is the visual equivalent of a graphic designer's "[Lorem ipsum](https://www.lipsum.com/)" text. With a few input variables, designers can quickly pull almost-random stock images into a page layout. The user may also optionally cover each image with an "Artwork not final" watermark.
 - Is this RESTful API the right one for your project?  TBD filler text about why you might want to use another method.
 - Here are [a few sample documents in different file formats] which you can download for use in the examples below. 
 
-## A compelling use case
+## A compelling use case <a name="usecase"></a>
 
 Pat is a graphic designer waiting on the final artwork approval for a project. Pat needs to have the design team approve the layout soon, and wants a to quickly populate a long InDesign document with stock photographs of mammals.  Using this API and a few lines of code, Pat is able to automatically fill the document with random mammal photos in a matter of minutes.
 
-## Your First Program
+## Your First Program <a name="firstprogram"></a>
 
 This section ideally contains amazingly verbose code snippets aimed at beginning programmers.
  
@@ -75,7 +82,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
         UPDATE https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en-US&search_parameters/words/mammals/search_parameters/limit/pngs/assign=IDtag/exclude=sloth
    ```
 
- ## Hello World Recipe
+ ## Hello World Recipe <a name="helloworld"></a>
 
   We're ready to make our first API call and find random images tagged "Hello World"
    
@@ -94,7 +101,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
    ```
    ![Hello World image from Adobe Stock](helloworld.png)
    
- ### URL Structure
+ ### URL Structure <a name="urlstructure"></a>
 
   The URLs for each call need to be structured as follows:
 
@@ -102,7 +109,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   https://stock.adobe.io/Rest/Media/1/Search/Files?locale=Country/search_parameters/tags/filetype/exclude
   ```
 
- ### Method:
+ ### Methods: <a name="methods"></a>
 
   The following methods are allowed
 
@@ -116,7 +123,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
  UPDATE | Replaces and unassigned instances of `;;IDtag;;` in the local document with images specfied in the command
  POST | Assigns images retrieved in the `GET` into `;;IDtag;;` locations in the local document
   
- ### URL Params
+ ### URL Parameters <a name="params"></a>
   
   Requirement | Parameter |  Input
   --- | --- | ---
@@ -125,9 +132,8 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   Required | locale | alphanumeric
   Optional | filetype | alphanumeric
 
- ### Error Examples
-
-
+ ### Error Examples <a name="errors"></a>
+ 
   Code # | Error | Notes 
   --- | --- | ---
   401 UNAUTHORIZED  | ` error : "Log into Adobe CC" ` | You must be logged into Adobe CC and have a valid Adobe Stock account (beyond the 10 free images).
@@ -136,18 +142,18 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
   405 METHOD NOT ALLOWED |` error : "Invalid method" ` |  The GET method can only be used with stock.adobe.io, while UPDATE, DELETE, and POST can only be used with local files, or files not hosted on stock.adobe.io that you are able to access.
 
 
-## Screenshots
+## Screenshots <a name="screenshots"></a>
  Here are a couple well-chosen screenshots of this API in action
 
  [TBA]
 
-## Where to get help
+## Where to get help <a name="help"></a>
    - The dedicated community forum
    - a hash tag on twitter
    - the stackoverflow tag
    - How to contact us
 
-## Reference
+## Reference <a name="reference"></a>
    - API Status Page 
    - Glossary
    - Specifications
