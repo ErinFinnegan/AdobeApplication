@@ -40,7 +40,7 @@ Pat is a graphic designer waiting on the final artwork approval for a project. P
 
 This section ideally contains amazingly verbose code snippets aimed at beginning programmers.
  
- 1. You're ready to get started. Download this [example document] and you will find this "id tag" in several locations:
+ 1. You're ready to get started. Download this [TBA example document] and you will find this "id tag" in several locations:
 
      ```
       %3BIDtag%3B     
@@ -102,7 +102,7 @@ This section ideally contains amazingly verbose code snippets aimed at beginning
 
   The URLs for each call need to be structured as follows:
   ```
-  <protocol>://<host>/?<file path>&<param1>&<param2>&...<param>
+  <protocol>://<host>?<file path>&<param1>&<param2>&...<param>
   ```
  <a name="methods"></a>
  ### Methods and Parameters:
